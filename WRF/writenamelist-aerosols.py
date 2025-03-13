@@ -15,7 +15,7 @@ e_sn_d01 = 266
 e_sn_d02 = 706
 i_parent_start_d02 = 155
 j_parent_start_d02 = 118
-merra = False
+merra = True
 #! Various physics and chemistry settings must be edited individually below for now. 
 
 for seq, syr, smon, sday, shr, eyr, emon, eday, ehr in zip(seqs, syrs, smons, sdays, shrs, eyrs, emons, edays, ehrs):

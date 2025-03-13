@@ -1,21 +1,21 @@
 #! Script that writes out the namelists for a multi-stage WRF run. Options at the beginning can be edited to the length and details of the simulation
 
-seqs = ['real', *(x for x in range(1,49))] #must contain 'real' at the beginning
-sdays = [20, *(x for x in range(20,32) for _ in (0,1)), *(x for x in range(1,13) for _ in (0,1))] #must contain the start for entire sim at beginning
-edays = [13, 20, *(x for x in range(21,32) for _ in (0,1)), *(x for x in range(1,13) for _ in (0,1)), 13] #must have end of entire sim at beginning
-smons = [*([7] * 25), *([8] * 24)] #must have start of entire sim at beginning
-emons = [8, *([7] * 23), *([8] * 25)] #must have end of entire sim at beginning
-shrs = [0, *([0, 12] * 24)] #must have start of entire sim at beginning
-ehrs = [0, *([12, 0] * 24)] #must have end of entire sim at beginning
-syrs = [*([2023] * 49)]
-eyrs = [*([2023] * 49)]
+seqs = ['real', *(x for x in range(1,7))] #must contain 'real' at the beginning
+sdays = [12, *(x for x in range(12,15) for _ in (0,1))] #must contain the start for entire sim at beginning
+edays = [15, 12, *(x for x in range(13,15) for _ in (0,1)),15] #must have end of entire sim at beginning
+smons = [*([7] * 7)] #must have start of entire sim at beginning
+emons = [*([7] * 7)] #must have end of entire sim at beginning
+shrs = [0, *([0, 12] * 3)] #must have start of entire sim at beginning
+ehrs = [0, *([12, 0] * 3)] #must have end of entire sim at beginning
+syrs = [*([2024] * 7)]
+eyrs = [*([2024] * 7)]
 e_we_d01 = 443
-e_we_d02 = 301
+e_we_d02 = 541
 e_sn_d01 = 266
-e_sn_d02 = 256
-i_parent_start_d02 = 372
-j_parent_start_d02 = 154
-merra = False
+e_sn_d02 = 706
+i_parent_start_d02 = 155
+j_parent_start_d02 = 118
+merra = True
 #! Various physics and chemistry settings must be edited individually below for now. 
 
 for seq, syr, smon, sday, shr, eyr, emon, eday, ehr in zip(seqs, syrs, smons, sdays, shrs, eyrs, emons, edays, ehrs):
@@ -114,17 +114,16 @@ for seq, syr, smon, sday, shr, eyr, emon, eday, ehr in zip(seqs, syrs, smons, sd
         fl.write(f'corral_dist                         = 125\n')
         fl.write(f'/\n')
         fl.write(f'\n')
-        fl.write(f'&physics\n')
-        fl.write(f'mp_physics                          = 10,     10,     10,     10,     10,\n')
+        fl.write(f'mp_physics                          = 4,     4,     4,     4,     4,\n')
         fl.write(f'do_radar_ref           = 1 ,\n')
-        fl.write(f'ra_lw_physics                       = 1,     1,     1,     1,\n') 
-        fl.write(f'ra_sw_physics                       = 1,     1,     1,     1,\n') 
+        fl.write(f'ra_lw_physics                       = 4,     4,     4,     4,\n') 
+        fl.write(f'ra_sw_physics                       = 4,     4,     4,     4,\n') 
         fl.write(f'radt                                = 30,    30,    30,   30,\n') 
         fl.write(f'sf_sfclay_physics                   = 1,     1,     1,     1,\n')
         fl.write(f'sf_surface_physics                  = 2,     2,     2,     2,\n')
-        fl.write(f'bl_pbl_physics                      = 11,    11,     0,     0,\n')
+        fl.write(f'bl_pbl_physics                      = 1,     1,     0,     0,\n')
         fl.write(f'bldt                                = 0,     0,     0,     0,\n')
-        fl.write(f'cu_physics                          = 3,     3,     0,     0,\n')
+        fl.write(f'cu_physics                          = 5,     5,     0,     0,\n')
         fl.write(f'cu_rad_feedback                     = .true.\n')
         fl.write(f'cu_diag                             = 1,     1,     0,     0,\n')
         fl.write(f'cudt                                = 5,     5,     5,     5,\n')
@@ -133,7 +132,7 @@ for seq, syr, smon, sday, shr, eyr, emon, eday, ehr in zip(seqs, syrs, smons, sd
         fl.write(f'icloud                              = 1,\n')
         fl.write(f'surface_input_source                = 1,\n')
         fl.write(f'sst_update                          = 0, ! if input_from_file false, sst_update needs to be 0\n')
-        fl.write(f'num_soil_layers                     = 4,\n')
+        fl.write(f'num_soil_layers                     = 5,\n')
         fl.write(f'maxiens                             = 1,\n')
         fl.write(f'maxens                              = 3,\n')
         fl.write(f'maxens2                             = 3,\n')

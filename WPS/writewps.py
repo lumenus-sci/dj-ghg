@@ -1,28 +1,28 @@
 ## Script for writing the namelists for WPS
 
 seqs = ['wps_geoungrib', 'metgrid']
-start_dates = ['YYYY-MM-DD_HH:00:00','YYYY-MM-DD_HH:00:00'] #! must be strings and must be in this format
-end_dates = ['YYYY-MM-DD_HH:00:00','YYYY-MM-DD_HH:00:00'] #! must be strings and must be in this format
+start_dates = ['2024-07-12_00:00:00','2024-07-15_00:00:00'] #! must be strings and must be in this format
+end_dates = ['2024-07-12_00:00:00','2024-07-15_00:00:00'] #! must be strings and must be in this format
 output_dir = './' # where you want to output geogrid/metgrid files
 e_we_d01 = 443 #! Do not change. CONUS domain
 e_sn_d01 = 266 #! Do not change. CONUS domain
-e_we_d02 = 301 #* Update for the project
-e_sn_d02 = 256 #* Update for the project
+e_we_d02 = 541 #* Update for the project
+e_sn_d02 = 706 #* Update for the project
 parent_grid_ratio_d02 = 15 #* Update for project (dx and dy for d02 will be d01_dx/grid_ratio or d01_dy/grid_ratio)
-i_parent_start_d02 = 372 #* Update for the project (use WRF_Domain_Wizard)
-j_parent_start_d02 = 154 #* Update for the project (use WRF_Domain_Wizard)
+i_parent_start_d02 = 155 #* Update for the project (use WRF_Domain_Wizard)
+j_parent_start_d02 = 118 #* Update for the project (use WRF_Domain_Wizard)
 dxy = 12000 #! Do not change. CONUS domain/base dx and dy for nests in meters
 ref = (40, -97) #! Do not change. CONUS domain
 true_lats = (33, 45) #! Do not change. CONUS domain.
 wps_dir = '/work2/07655/tg869546/stampede3/WPS' #* Update for where your WPS files are
-ungrib_prefix = 'GFS' #* Update for what your meteorology IC/BC files are
+ungrib_prefix = 'MERRA' #* Update for what your meteorology IC/BC files are
 merra_pgm_dir = '$HOME/merra2wps'
 chem_dir = '$HOME/work/chem-files'
 vtable = 'Vtable.GFS'
 bc_ic = '<insert path to bc/ic files here>'
 if ungrib_prefix == 'MERRA':
-   days = ["'YYYYMMDD',"] #! Update for project, must be strings in this format
-   dates = ["'YYYY-MM-DD',"] #! Update for project, must be strings in this format
+   days = ["20240712","20240713","20240714","20240715"] #! Update for project, must be strings in this format
+   dates = ["'2024-07-12',","'2024-07-13',","'2024-07-14',","'2024-07-15',"] #! Update for project, must be strings in this format
    ananv_files = [*(f"'MERRA2_400.inst6_3d_ana_Nv.{i}.nc4'," for i in days)]
    ananp_files = [*(f"'MERRA2_400.inst6_3d_ana_Np.{i}.nc4'," for i in days)]
    slv_files = [*(f"'MERRA2_400.tavg1_2d_slv_Nx.{i}.nc4'," for i in days)]
