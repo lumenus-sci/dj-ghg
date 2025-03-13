@@ -1,8 +1,8 @@
 ## Script for writing the namelists for WPS
 
 seqs = ['wps_geoungrib', 'metgrid']
-start_dates = ['2024-07-12_00:00:00','2024-07-15_00:00:00'] #! must be strings and must be in this format
-end_dates = ['2024-07-12_00:00:00','2024-07-15_00:00:00'] #! must be strings and must be in this format
+start_dates = ['2024-07-12_00:00:00','2024-07-12_00:00:00'] #! must be strings and must be in this format
+end_dates = ['2024-07-15_00:00:00','2024-07-15_00:00:00'] #! must be strings and must be in this format
 output_dir = './' # where you want to output geogrid/metgrid files
 e_we_d01 = 443 #! Do not change. CONUS domain
 e_sn_d01 = 266 #! Do not change. CONUS domain
