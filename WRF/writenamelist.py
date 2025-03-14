@@ -120,7 +120,7 @@ for seq, syr, smon, sday, shr, eyr, emon, eday, ehr in zip(seqs, syrs, smons, sd
         fl.write(f'ra_sw_physics                       = 4,     4,     4,     4,\n') 
         fl.write(f'radt                                = 30,    30,    30,   30,\n') 
         fl.write(f'sf_sfclay_physics                   = 1,     1,     1,     1,\n')
-        fl.write(f'sf_surface_physics                  = 2,     2,     2,     2,\n')
+        fl.write(f'sf_surface_physics                  = 1,     1,     1,     1,\n')
         fl.write(f'bl_pbl_physics                      = 1,     1,     0,     0,\n')
         fl.write(f'bldt                                = 0,     0,     0,     0,\n')
         fl.write(f'cu_physics                          = 5,     5,     0,     0,\n')
