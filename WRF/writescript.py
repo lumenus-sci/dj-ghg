@@ -9,8 +9,8 @@ queue = 'skx'
 run_time = '48:00:00' #must be in hh:mm:ss format
 tasks_per_node = 48
 nodes = 4
-wrf_dir = '$HOME/work/WRF/run/'
-met_em_dir = '../../wps'
+wrf_dir = '$HOME/work/WRF/run'
+met_em_dir = '../WPS'
 chem_dir = '$HOME/work/chem-files'
 moz_dir = '$HOME/mozbc'
 
@@ -29,7 +29,8 @@ for seq, mon, day, hr in zip(seqs, mons, days, hrs):
         fl.write(f'#SBATCH --mail-type=all\n')
         fl.write(f'\n')
         if seq == 'real':
-            fl.write(f'ln -sf {wrf_dir}* .\n')
+            fl.write(f'ln -sf {wrf_dir}/* .\n')
+            fl.write(f'rm -f *backup*\n')
             fl.write(f'ln -sf {met_em_dir}/met_em* .\n')
             fl.write(f'ln -sf {chem_dir}/wrf* .\n')
             fl.write(f'ln -sf {chem_dir}/hist* .\n')
