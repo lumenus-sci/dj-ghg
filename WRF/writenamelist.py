@@ -51,7 +51,7 @@ for seq, syr, smon, sday, shr, eyr, emon, eday, ehr in zip(seqs, syrs, smons, sd
         fl.write(f'auxinput5_interval_d                = 31, 31, 31, 31, 31,\n')
         fl.write(f'auxinput15_interval_d               = 8, 8, 8, 8, 8,\n')
         fl.write(f'io_form_history                     = 2\n')
-        fl.write(f'io_form_restart                     = 2\n')
+        fl.write(f'io_form_restart                     = 102\n')
         fl.write(f'io_form_input                       = 2\n')
         fl.write(f'io_form_boundary                    = 2\n')
         fl.write(f'io_form_auxinput4                   = 2\n')
