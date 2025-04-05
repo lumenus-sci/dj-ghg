@@ -67,7 +67,7 @@ for seq, syr, smon, sday, shr, eyr, emon, eday, ehr in zip(seqs, syrs, smons, sd
         fl.write(f'/\n')
         fl.write(f'\n')
         fl.write(f'&domains\n')
-        fl.write(f'time_step                           = 60,\n')
+        fl.write(f'time_step                           = 30,\n')
         fl.write(f'time_step_fract_num                 = 0,\n')
         fl.write(f'time_step_fract_den                 = 1,\n')
         fl.write(f'max_dom                             = 2,\n')
